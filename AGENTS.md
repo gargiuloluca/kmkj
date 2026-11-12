@@ -30,4 +30,5 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Project rules
-- Course text lives in `src/components/course/course-data.ts`; pages render from it so content edits stay in one place.
+- All course text (parts, chapters, technique sheets, Kyusho atlas) lives in `src/content/`; pages only render it, so content edits stay in one place and `src/content/curriculum.test.ts` guards links between them.
+- Each technique sheet has its own page at `/tecniche/$slug`; the three course parts are separate pages (`/fondamenta`, `/esperti`, `/kyusho`) so each is linkable and indexable.
