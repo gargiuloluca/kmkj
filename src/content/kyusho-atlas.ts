@@ -11,7 +11,6 @@ export const kyushoAtlas: KyushoPoint[] = [
     reaction: "Disorientamento vestibolare, perdita momentanea dell'equilibrio, flessione della testa in avanti.",
     application: "Hammerfist o palmo aperto dalla Dead Zone, dopo una deviazione o all'uscita da un controllo laterale.",
     safeTraining: "In allenamento solo localizzazione a pressione leggera; impatto unicamente su manichini da percussione.",
-    related: ["guardia-dead-zone", "hammerfist"],
     marker: { x: 41, y: 19 },
   },
   {
@@ -24,7 +23,6 @@ export const kyushoAtlas: KyushoPoint[] = [
     reaction: "Riflesso barocettore: calo della pressione e della frequenza cardiaca, cedimento delle ginocchia.",
     application: "Ultima risorsa in pericolo grave di vita, a mano tagliente o con l'avambraccio dopo una deviazione.",
     safeTraining: "Zona ad alto rischio: mai pressione prolungata né colpi sul collo di un partner. Solo studio anatomico e manichini.",
-    related: ["palm-strike"],
     marker: { x: 52, y: 29 },
   },
   {
@@ -37,7 +35,6 @@ export const kyushoAtlas: KyushoPoint[] = [
     reaction: "Scarica nervosa lungo l'avambraccio, rilascio involontario della presa, debolezza temporanea dell'arto.",
     application: "Prima di un rilascio da presa ai polsi o durante il controllo del braccio armato nella difesa da coltello.",
     safeTraining: "Percussioni leggere e progressive con partner; fermarsi alla prima sensazione di formicolio.",
-    related: ["rilascio-presa-polso", "difesa-coltello-360"],
     marker: { x: 87, y: 85 },
   },
   {
@@ -50,6 +47,5 @@ export const kyushoAtlas: KyushoPoint[] = [
     reaction: "CV-23: estensione della testa e perdita della postura. ST-12: abbassamento della spalla e del baricentro dell'aggressore.",
     application: "Controllo e sbilanciamento durante clinch, rialzata da terra o accompagnamento al suolo.",
     safeTraining: "Pressioni dosate e lente; il partner dà il tap al primo fastidio. Mai pressione sulla trachea.",
-    related: ["strangolamento-posteriore", "bridge-and-roll"],
   },
 ];

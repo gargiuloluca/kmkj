@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { getKyushoPoint, getTechnique, kyushoAtlas, parts, techniques } from "@/content";
+import { getKyushoPoint, getLinkedTechniques, getTechnique, kyushoAtlas, parts, stressLevels, techniques } from "@/content";
 
 describe("curriculum", () => {
   it("every technique sheet has exactly the 4 phases, each with steps", () => {
@@ -20,9 +20,21 @@ describe("curriculum", () => {
         }
   });
 
-  it("every Kyusho reference points to an atlas entry", () => {
-    for (const t of techniques) if (t.kyusho) expect(getKyushoPoint(t.kyusho.point), t.slug).toBeDefined();
-    for (const k of kyushoAtlas) for (const slug of k.related) expect(getTechnique(slug), slug).toBeDefined();
+  it("there are exactly 15 technique sheets", () => {
+    expect(techniques).toHaveLength(15);
+  });
+
+  it("every technique sheet links to an existing Kyusho atlas point", () => {
+    for (const t of techniques) expect(getKyushoPoint(t.kyusho.point), t.slug).toBeDefined();
+  });
+
+  it("every atlas point is used by at least one technique sheet", () => {
+    for (const k of kyushoAtlas) expect(getLinkedTechniques(k.code).length, k.code).toBeGreaterThan(0);
+  });
+
+  it("the stress plan has 4 levels, each with a BPM target", () => {
+    expect(stressLevels).toHaveLength(4);
+    for (const l of stressLevels) expect(l.bpm).toMatch(/bpm/);
   });
 
   it("covers the three parts: Fondamenta, Esperti, Kyusho", () => {

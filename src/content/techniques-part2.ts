@@ -32,6 +32,10 @@ export const part2Techniques: TechniqueSheet[] = [
       { steps: ["Rialzata tattica (vedi Technical Stand-up).", "Scanning prima e dopo la rialzata."], cue: "Su, in guardia, guarda." },
     ],
     errors: ["Mettere le mani dietro per fermare la caduta (rischio frattura del polso).", "Testa che rimbalza a terra.", "Cadere rigidi e piatti."],
+    kyusho: {
+      point: "GB-20",
+      note: "Il mento al petto protegge la propria base del cranio (GB-20): la stessa area vulnerabile che si colpisce nell'aggressore.",
+    },
     drill: [
       "Da seduti, poi accovacciati, poi in piedi: 10 ripetizioni per livello.",
       "Caduta laterale alternata destra/sinistra.",
@@ -46,7 +50,7 @@ export const part2Techniques: TechniqueSheet[] = [
       ],
       overlays: ["Arco della schiena arrotondata", "Angolo delle braccia a 45°"],
     },
-    image: "ground",
+    image: "breakfall",
   },
   {
     slug: "bridge-and-roll",
@@ -79,6 +83,10 @@ export const part2Techniques: TechniqueSheet[] = [
       { steps: ["Technical stand-up per rialzarsi.", "Scanning e distanza."], cue: "Mai restare a terra più del necessario." },
     ],
     errors: ["Ponte senza bloccare braccio e piede: l'aggressore mette la base.", "Spingere con le braccia distese (rischio leva al gomito).", "Rotolare verso il lato sbagliato."],
+    kyusho: {
+      point: "CV-23 / ST-12",
+      note: "Dopo il ribaltamento, pressione su CV-23 verso l'alto e indietro per estendere la testa dell'aggressore e impedirgli di rialzarsi mentre ci si alza.",
+    },
     drill: [
       "Ponte isolato: 3 × 15 ripetizioni.",
       "Partner in monta passiva: tecnica completa 10 per lato.",
@@ -119,6 +127,10 @@ export const part2Techniques: TechniqueSheet[] = [
       { steps: ["Arretrare di due passi.", "Scanning completo."], cue: "In piedi, a distanza, attento." },
     ],
     errors: ["Rialzarsi in avanti con la testa verso l'aggressore.", "Togliere entrambe le mani da terra troppo presto.", "Rialzarsi senza guardare."],
+    kyusho: {
+      point: "GB-20",
+      note: "Se l'aggressore si china in avanti durante la rialzata, la base del cranio (GB-20) resta esposta a un hammerfist orizzontale.",
+    },
     drill: ["10 rialzate per lato, lente.", "Il partner si avvicina a ritmo variabile: calcio d'arresto o rialzata.", "Dopo 30 s di lavoro a terra, rialzata e sprint verso un'uscita."],
     clip: {
       seconds: 5,
@@ -128,7 +140,7 @@ export const part2Techniques: TechniqueSheet[] = [
       ],
       overlays: ["Linea testa–piedi", "Tre appoggi evidenziati"],
     },
-    image: "ground",
+    image: "standUp",
   },
   {
     slug: "difesa-coltello-360",
@@ -226,6 +238,10 @@ export const part2Techniques: TechniqueSheet[] = [
       { steps: ["Distanza con l'arma: mai restare nella sua portata.", "Scanning, ricerca di riparo, chiamata al 112."], cue: "Distanza, riparo, aiuto." },
     ],
     errors: ["Muovere prima il corpo o prima le mani (devono essere simultanei).", "Riportare la linea di fuoco sul proprio corpo o su terzi.", "Lottare per l'arma senza contrattaccare."],
+    kyusho: {
+      point: "LI-10",
+      note: "Percussione su LI-10 durante la rotazione dell'arma: la scarica sul nervo radiale favorisce il rilascio dell'impugnatura.",
+    },
     drill: [
       "Solo con armi da allenamento in plastica, mai con armi reali.",
       "Deviazione su comando verbale del partner.",
@@ -240,7 +256,7 @@ export const part2Techniques: TechniqueSheet[] = [
       ],
       overlays: ["Linea di fuoco in rosso", "Freccia di deviazione", "Area di sicurezza"],
     },
-    image: "expert",
+    image: "gun",
   },
   {
     slug: "scenario-stress-inoculation",
@@ -282,6 +298,10 @@ export const part2Techniques: TechniqueSheet[] = [
       },
     ],
     errors: ["Aumentare lo stress senza progressione: blocco e apprendimento negativo.", "Saltare il debriefing.", "Allenare scenari che l'allievo non conosce ancora tecnicamente."],
+    kyusho: {
+      point: "GB-20",
+      note: "Negli scenari si usano manichini da percussione con GB-20 marcato: un colpo preciso sotto fatica misura il controllo motorio residuo.",
+    },
     drill: [
       "Livello 1: scenario unico noto, solo fatica.",
       "Livello 2: scenario casuale tra 3, occhiali oscurati.",

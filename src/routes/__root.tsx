@@ -12,7 +12,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { SiteFooter, SiteHeader } from "../components/course/SiteChrome";
+import { SiteFooter } from "../components/course/SiteChrome";
+import { AppSidebar, MobileTabBar, MobileTopBar } from "../components/course/AppNav";
 
 function NotFoundComponent() {
   return (
@@ -127,11 +128,15 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <SiteHeader />
-      <main className="min-h-screen bg-background text-foreground">
-        <Outlet />
-      </main>
-      <SiteFooter />
+      <AppSidebar />
+      <div className="min-h-screen bg-background pb-16 text-foreground md:pb-0 md:pl-60">
+        <MobileTopBar />
+        <main>
+          <Outlet />
+        </main>
+        <SiteFooter />
+      </div>
+      <MobileTabBar />
     </QueryClientProvider>
   );
 }

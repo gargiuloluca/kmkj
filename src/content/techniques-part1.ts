@@ -122,6 +122,10 @@ export const part1Techniques: TechniqueSheet[] = [
       "Avvicinare i piedi durante lo spostamento, perdendo la base.",
       "Abbassare le mani quando arriva la fatica.",
     ],
+    kyusho: {
+      point: "LI-10",
+      note: "Sull'ingresso con il pendolo l'avambraccio anteriore intercetta il braccio che colpisce: la percussione cade naturalmente su LI-10 (nervo radiale).",
+    },
     drill: [
       "Scala di agilità: 6 ripetizioni avanti/indietro mantenendo la guardia.",
       "Pendolo + colpo su pao al segnale sonoro dell'istruttore.",
@@ -184,6 +188,10 @@ export const part1Techniques: TechniqueSheet[] = [
       "Arretrare in linea retta dopo il sussulto.",
       "Fermarsi dopo la protezione senza contrattaccare.",
     ],
+    kyusho: {
+      point: "GB-20",
+      note: "Al livello 3 il contrattacco su pao è sostituito da una percussione su manichino con GB-20 marcato: precisione del bersaglio subito dopo il sussulto.",
+    },
     drill: [
       "Livello 1: stimolo sonoro, risposta solo protettiva.",
       "Livello 2: stimolo visivo + contrattacco su pao.",
@@ -314,7 +322,7 @@ export const part1Techniques: TechniqueSheet[] = [
       ],
       overlays: ["Arco della traiettoria", "Evidenziazione della superficie d'impatto"],
     },
-    image: "beginner",
+    image: "hammerfist",
   },
   {
     slug: "calcio-bersagli-bassi",
@@ -354,6 +362,10 @@ export const part1Techniques: TechniqueSheet[] = [
       "Alzare il calcio troppo: bersaglio alto = equilibrio basso.",
       "Lasciare cadere le mani durante il calcio.",
     ],
+    kyusho: {
+      point: "CV-23 / ST-12",
+      note: "Dopo la ginocchiata la testa dell'aggressore è bassa: pressione su ST-12 verso il basso per mantenerlo piegato e controllarne la postura.",
+    },
     drill: [
       "Su scudo da impatto tenuto basso: 3 × 10 per gamba.",
       "Combinazione palmo + calcio + ginocchiata su scudo.",
@@ -368,7 +380,7 @@ export const part1Techniques: TechniqueSheet[] = [
       ],
       overlays: ["Arco della gamba a frusta", "Vettore di trazione della testa"],
     },
-    image: "beginner",
+    image: "knee",
   },
   {
     slug: "rilascio-presa-polso",
@@ -429,7 +441,7 @@ export const part1Techniques: TechniqueSheet[] = [
       ],
       overlays: ["Cerchio sull'apertura pollice-dita", "Freccia di rotazione", "Vettore di uscita"],
     },
-    image: "beginner",
+    image: "wrist",
   },
   {
     slug: "strangolamento-frontale",
@@ -466,6 +478,10 @@ export const part1Techniques: TechniqueSheet[] = [
       "Arretrare durante la presa.",
       "Ritardare il contrattacco dopo il rilascio.",
     ],
+    kyusho: {
+      point: "CV-23 / ST-12",
+      note: "Durante la pizzicata i pollici possono scendere nella fossa sopraclavicolare (ST-12): le spalle dell'aggressore si abbassano e la presa si allenta.",
+    },
     drill: [
       "Partner applica presa lenta, allievo esegue la pizzicata: 10 ripetizioni.",
       "Il partner spinge contro un muro: stessa difesa con spalle a muro.",
@@ -480,7 +496,7 @@ export const part1Techniques: TechniqueSheet[] = [
       ],
       overlays: ["Evidenziazione dei pollici", "Vettore di strappo verso il basso"],
     },
-    image: "beginner",
+    image: "frontChoke",
   },
   {
     slug: "strangolamento-posteriore",
@@ -520,6 +536,10 @@ export const part1Techniques: TechniqueSheet[] = [
       "Restare in piedi dritti: l'aggressore solleva e controlla.",
       "Uscire dal lato sbagliato (verso la mano libera dell'aggressore).",
     ],
+    kyusho: {
+      point: "LI-10",
+      note: "Percussione con le nocche su LI-10 dell'avambraccio che stringe, per indebolire la presa un istante prima dello strappo verso il basso.",
+    },
     drill: [
       "Presa lenta e controllata con tap immediato al segnale: sicurezza prima di tutto.",
       "Difesa da posizione in ginocchio.",
@@ -534,6 +554,6 @@ export const part1Techniques: TechniqueSheet[] = [
       ],
       overlays: ["Freccia di rotazione del mento", "Abbassamento del baricentro"],
     },
-    image: "beginner",
+    image: "rearChoke",
   },
 ];

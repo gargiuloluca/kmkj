@@ -1,33 +1,5 @@
 import { Link } from "@tanstack/react-router";
 
-import { parts } from "@/content";
-import { tones } from "./media";
-
-export function SiteHeader() {
-  return (
-    <header className="fixed inset-x-0 top-0 z-30 border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3">
-        <Link to="/" className="font-display text-lg tracking-wide">
-          KM<span className="text-primary">/</span>KJ
-        </Link>
-        <nav className="flex gap-3 font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground sm:gap-5 sm:text-[11px]">
-          {parts.map((p) => (
-            <Link
-              key={p.id}
-              to={p.path}
-              className="flex items-center gap-1.5 transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
-            >
-              <span className={`h-1.5 w-1.5 rounded-full ${tones[p.id].bg}`} />
-              {p.id === 1 ? "Fondamenta" : p.id === 2 ? "Esperti" : "Kyusho"}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </header>
-  );
-}
-
 export function SiteFooter() {
   return (
     <footer className="border-t border-border">
@@ -43,7 +15,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-8 flex flex-col gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground md:flex-row md:justify-between">
           <span>Krav Maga &amp; Kyusho Jutsu · Curriculum accademico</span>
-          <span>Livello integrato · Principianti ed esperti</span>
+          <Link to="/esperti" hash="checklist" className="hover:text-foreground">Check-list di sicurezza istruttore →</Link>
         </div>
       </div>
     </footer>
