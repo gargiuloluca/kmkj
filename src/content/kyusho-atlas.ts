@@ -47,5 +47,6 @@ export const kyushoAtlas: KyushoPoint[] = [
     reaction: "CV-23: estensione della testa e perdita della postura. ST-12: abbassamento della spalla e del baricentro dell'aggressore.",
     application: "Controllo e sbilanciamento durante clinch, rialzata da terra o accompagnamento al suolo.",
     safeTraining: "Pressioni dosate e lente; il partner dà il tap al primo fastidio. Mai pressione sulla trachea.",
+    marker: { x: 60, y: 33 },
   },
 ];

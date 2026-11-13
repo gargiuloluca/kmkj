@@ -3,7 +3,8 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { media } from "@/components/course/media";
 import { ChapterSection, PartHeader } from "@/components/course/PartPage";
 import { Eyebrow } from "@/components/course/ui";
-import { getPart, getTechnique, kyushoAtlas } from "@/content";
+import { InstructorChecklist } from "@/components/course/Protocols";
+import { getLinkedTechniques, getPart, kyushoAtlas } from "@/content";
 
 export const Route = createFileRoute("/kyusho")({
   head: () => ({
@@ -28,7 +29,7 @@ function KyushoPage() {
       <ChapterSection part={part} n={1} />
       <ChapterSection part={part} n={2}>
         <div className="mt-10 grid gap-8 md:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] md:items-start">
-          <figure className="overflow-hidden rounded-sm border border-border bg-surface md:sticky md:top-20">
+          <figure className="overflow-hidden rounded-md border border-border bg-surface md:sticky md:top-20">
             <div className="relative">
               <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" className="h-auto w-full" />
               {kyushoAtlas
@@ -76,28 +77,25 @@ function KyushoPage() {
                   <span className="font-mono font-bold uppercase tracking-widest text-kyusho">Allenamento sicuro · </span>
                   {p.safeTraining}
                 </div>
-                {p.related.length > 0 && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {p.related.map((slug) => {
-                      const t = getTechnique(slug)!;
-                      return (
-                        <Link
-                          key={slug}
-                          to="/tecniche/$slug"
-                          params={{ slug }}
-                          className="rounded-sm border border-border px-2 py-1 font-mono text-[11px] text-foreground/85 hover:border-foreground/50"
-                        >
-                          → {t.title}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
+                <Eyebrow className="mt-5">Tecniche collegate</Eyebrow>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {getLinkedTechniques(p.code).map((t) => (
+                    <Link
+                      key={t.slug}
+                      to="/tecniche/$slug"
+                      params={{ slug: t.slug }}
+                      className="rounded-sm border border-border px-2 py-1 font-mono text-[11px] text-foreground/85 hover:border-foreground/50"
+                    >
+                      → {t.title}
+                    </Link>
+                  ))}
+                </div>
               </article>
             ))}
           </div>
         </div>
         <Eyebrow className="mt-8">Codici secondo la nomenclatura dei meridiani (GB, ST, LI, CV).</Eyebrow>
+        <InstructorChecklist context="Punti di pressione" />
       </ChapterSection>
     </>
   );

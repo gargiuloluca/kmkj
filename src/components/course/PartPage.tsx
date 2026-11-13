@@ -1,34 +1,40 @@
 import type { ReactNode } from "react";
 
 import { getTechnique, type Part } from "@/content";
+import { MediaCard } from "./MediaCard";
 import { media, tones } from "./media";
-import { Eyebrow, TechniqueCard, TopicCard } from "./ui";
-import { VisualClip } from "./VisualClip";
+import { Eyebrow, TopicCard } from "./ui";
 
 export function PartHeader({ part }: { part: Part }) {
   const tone = tones[part.id];
   const img = media[part.image];
   return (
-    <section className="border-b border-border">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 pb-14 pt-28 md:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] md:items-end">
-        <div>
-          <Eyebrow className={tone.text}>Parte {part.roman} · {part.en}</Eyebrow>
-          <h1 className="mt-4 font-display text-6xl md:text-8xl">{part.title}</h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/85">{part.focus}</p>
-          <ol className="mt-8 space-y-2 border-t border-border pt-6">
-            {part.chapters.map((c) => (
-              <li key={c.n}>
-                <a href={`#capitolo-${c.n}`} className="group flex items-baseline gap-3 text-sm">
-                  <span className={`font-mono text-xs ${tone.text}`}>Cap. {c.n}</span>
-                  <span className="text-foreground/85 group-hover:text-foreground">{c.title}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
+    <section className="relative overflow-hidden border-b border-border">
+      <img
+        src={img.src}
+        alt={img.alt}
+        width={img.width}
+        height={img.height}
+        className="absolute inset-0 h-full w-full object-cover opacity-60 animate-push-in"
+      />
+      <div className="absolute inset-0 bg-hero-side" />
+      <div className="absolute inset-0 bg-hero-fade" />
+      <div className="relative px-5 pb-12 pt-24 md:px-10 md:pt-32">
+        <Eyebrow className={tone.text}>Parte {part.roman} · {part.en}</Eyebrow>
+        <h1 className="mt-4 max-w-3xl font-display text-6xl md:text-8xl">{part.title}</h1>
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/85">{part.focus}</p>
+        <div className="no-scrollbar mt-8 flex gap-2 overflow-x-auto">
+          {part.chapters.map((c) => (
+            <a
+              key={c.n}
+              href={`#capitolo-${c.n}`}
+              className="shrink-0 rounded-full border border-border bg-background/60 px-4 py-2 text-xs backdrop-blur transition-colors hover:border-foreground/50"
+            >
+              <span className={`font-mono font-bold ${tone.text}`}>Cap. {c.n}</span>
+              <span className="ml-2 text-foreground/85">{c.title}</span>
+            </a>
+          ))}
         </div>
-        {part.image !== "kyusho" && (
-          <VisualClip src={img.src} alt={img.alt} width={img.width} height={img.height} caption={part.en} eager />
-        )}
       </div>
     </section>
   );
@@ -40,7 +46,7 @@ export function ChapterSection({ part, n, children }: { part: Part; n: number; c
   const sheets = chapter.techniques.map((s) => getTechnique(s)!);
   return (
     <section id={`capitolo-${chapter.n}`} className="scroll-mt-14 border-b border-border">
-      <div className="mx-auto max-w-6xl px-5 py-16">
+      <div className="px-5 py-14 md:px-10">
         <div className="flex items-baseline gap-4">
           <span className={`font-display text-6xl ${tone.text}`}>{String(chapter.n).padStart(2, "0")}</span>
           <div>
@@ -50,38 +56,42 @@ export function ChapterSection({ part, n, children }: { part: Part; n: number; c
         </div>
         <p className="mt-6 max-w-3xl text-base leading-relaxed text-foreground/85">{chapter.intro}</p>
 
-        {chapter.topics.length > 0 && (
-          <div className="mt-10 grid gap-3 md:grid-cols-2">
-            {chapter.topics.map((t) => (
-              <TopicCard key={t.title} topic={t} part={part.id} />
-            ))}
-          </div>
-        )}
-
-        {children}
-
         {sheets.length > 0 && (
           <>
-            <Eyebrow className="mt-12 text-foreground">Schede tecniche del capitolo</Eyebrow>
-            <div className="mt-4 grid gap-3 md:grid-cols-3">
+            <Eyebrow className="mt-10 text-foreground">Schede tecniche · {sheets.length}</Eyebrow>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {sheets.map((t) => (
-                <TechniqueCard key={t.slug} t={t} />
+                <MediaCard key={t.slug} t={t} />
               ))}
             </div>
           </>
         )}
+
+        {chapter.topics.length > 0 && (
+          <>
+            <Eyebrow className="mt-12 text-foreground">Approfondimenti teorici</Eyebrow>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {chapter.topics.map((t) => (
+                <TopicCard key={t.title} topic={t} part={part.id} />
+              ))}
+            </div>
+          </>
+        )}
+
+        {children}
       </div>
     </section>
   );
 }
 
-export function PartPage({ part }: { part: Part }) {
+export function PartPage({ part, children }: { part: Part; children?: ReactNode }) {
   return (
     <>
       <PartHeader part={part} />
       {part.chapters.map((c) => (
         <ChapterSection key={c.n} part={part} n={c.n} />
       ))}
+      {children}
     </>
   );
 }

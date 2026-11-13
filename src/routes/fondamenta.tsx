@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { PartPage } from "@/components/course/PartPage";
+import { BeginnerFaq } from "@/components/course/Protocols";
 import { getPart } from "@/content";
 
 export const Route = createFileRoute("/fondamenta")({
@@ -14,5 +15,11 @@ export const Route = createFileRoute("/fondamenta")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => <PartPage part={getPart(1)} />,
+  component: () => (
+    <PartPage part={getPart(1)}>
+      <div className="px-5 py-14 md:px-10">
+        <BeginnerFaq />
+      </div>
+    </PartPage>
+  ),
 });

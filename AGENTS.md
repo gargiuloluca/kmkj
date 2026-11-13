@@ -32,3 +32,5 @@ use the editor.
 ## Project rules
 - All course text (parts, chapters, technique sheets, Kyusho atlas) lives in `src/content/`; pages only render it, so content edits stay in one place and `src/content/curriculum.test.ts` guards links between them.
 - Each technique sheet has its own page at `/tecniche/$slug`; the three course parts are separate pages (`/fondamenta`, `/esperti`, `/kyusho`) so each is linkable and indexable.
+- Favourites, completed sheets and profile are per-device state in `src/lib/academy-store.ts` (localStorage via useSyncExternalStore with an empty server snapshot), since the app has no accounts; move to a backend only if sign-in is added.
+- App frame lives in `__root.tsx`: fixed sidebar on desktop, bottom tab bar on mobile; both share one nav item list in `AppNav.tsx`.

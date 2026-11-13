@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as EspertiRouteImport } from './routes/esperti'
 import { Route as FondamentaRouteImport } from './routes/fondamenta'
 import { Route as KyushoRouteImport } from './routes/kyusho'
+import { Route as PreferitiRouteImport } from './routes/preferiti'
+import { Route as ProfiloRouteImport } from './routes/profilo'
 import { Route as TecnicheSlugRouteImport } from './routes/tecniche.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +37,16 @@ const KyushoRoute = KyushoRouteImport.update({
   path: '/kyusho',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PreferitiRoute = PreferitiRouteImport.update({
+  id: '/preferiti',
+  path: '/preferiti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfiloRoute = ProfiloRouteImport.update({
+  id: '/profilo',
+  path: '/profilo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TecnicheSlugRoute = TecnicheSlugRouteImport.update({
   id: '/tecniche/$slug',
   path: '/tecniche/$slug',
@@ -46,6 +58,8 @@ export interface FileRoutesByFullPath {
   '/esperti': typeof EspertiRoute
   '/fondamenta': typeof FondamentaRoute
   '/kyusho': typeof KyushoRoute
+  '/preferiti': typeof PreferitiRoute
+  '/profilo': typeof ProfiloRoute
   '/tecniche/$slug': typeof TecnicheSlugRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +67,8 @@ export interface FileRoutesByTo {
   '/esperti': typeof EspertiRoute
   '/fondamenta': typeof FondamentaRoute
   '/kyusho': typeof KyushoRoute
+  '/preferiti': typeof PreferitiRoute
+  '/profilo': typeof ProfiloRoute
   '/tecniche/$slug': typeof TecnicheSlugRoute
 }
 export interface FileRoutesById {
@@ -61,19 +77,37 @@ export interface FileRoutesById {
   '/esperti': typeof EspertiRoute
   '/fondamenta': typeof FondamentaRoute
   '/kyusho': typeof KyushoRoute
+  '/preferiti': typeof PreferitiRoute
+  '/profilo': typeof ProfiloRoute
   '/tecniche/$slug': typeof TecnicheSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/esperti' | '/fondamenta' | '/kyusho' | '/tecniche/$slug'
+  fullPaths:
+    | '/'
+    | '/esperti'
+    | '/fondamenta'
+    | '/kyusho'
+    | '/preferiti'
+    | '/profilo'
+    | '/tecniche/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/esperti' | '/fondamenta' | '/kyusho' | '/tecniche/$slug'
+  to:
+    | '/'
+    | '/esperti'
+    | '/fondamenta'
+    | '/kyusho'
+    | '/preferiti'
+    | '/profilo'
+    | '/tecniche/$slug'
   id:
     | '__root__'
     | '/'
     | '/esperti'
     | '/fondamenta'
     | '/kyusho'
+    | '/preferiti'
+    | '/profilo'
     | '/tecniche/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -82,6 +116,8 @@ export interface RootRouteChildren {
   EspertiRoute: typeof EspertiRoute
   FondamentaRoute: typeof FondamentaRoute
   KyushoRoute: typeof KyushoRoute
+  PreferitiRoute: typeof PreferitiRoute
+  ProfiloRoute: typeof ProfiloRoute
   TecnicheSlugRoute: typeof TecnicheSlugRoute
 }
 
@@ -115,6 +151,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KyushoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/preferiti': {
+      id: '/preferiti'
+      path: '/preferiti'
+      fullPath: '/preferiti'
+      preLoaderRoute: typeof PreferitiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profilo': {
+      id: '/profilo'
+      path: '/profilo'
+      fullPath: '/profilo'
+      preLoaderRoute: typeof ProfiloRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tecniche/$slug': {
       id: '/tecniche/$slug'
       path: '/tecniche/$slug'
@@ -130,6 +180,8 @@ const rootRouteChildren: RootRouteChildren = {
   EspertiRoute: EspertiRoute,
   FondamentaRoute: FondamentaRoute,
   KyushoRoute: KyushoRoute,
+  PreferitiRoute: PreferitiRoute,
+  ProfiloRoute: ProfiloRoute,
   TecnicheSlugRoute: TecnicheSlugRoute,
 }
 export const routeTree = rootRouteImport
